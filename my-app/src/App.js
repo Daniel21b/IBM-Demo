@@ -14,13 +14,13 @@ const IBMSterlingSupplyChainControlTowerDemo = () => {
   ];
 
   const demandForecast = [
-    { day: 'Mon', demand: 100 },
-    { day: 'Tue', demand: 120 },
-    { day: 'Wed', demand: 110 },
-    { day: 'Thu', demand: 140 },
-    { day: 'Fri', demand: 160 },
-    { day: 'Sat', demand: 180 },
-    { day: 'Sun', demand: 130 },
+    { day: 'Mon', demand: 100, weather: 'Sunny' },
+    { day: 'Tue', demand: 120, weather: 'Rainy' },
+    { day: 'Wed', demand: 110, weather: 'Cloudy' },
+    { day: 'Thu', demand: 140, weather: 'Sunny' },
+    { day: 'Fri', demand: 160, weather: 'Rainy' },
+    { day: 'Sat', demand: 180, weather: 'Sunny' },
+    { day: 'Sun', demand: 130, weather: 'Cloudy' },
   ];
 
   const automatedActions = [
@@ -69,16 +69,25 @@ const IBMSterlingSupplyChainControlTowerDemo = () => {
       margin: '0 auto',
       fontFamily: 'IBM Plex Sans, sans-serif',
     },
+    header: {
+      backgroundColor: '#0f62fe',
+      color: 'white',
+      padding: '24px',
+      borderRadius: '8px',
+      textAlign: 'center',
+      marginBottom: '24px',
+    },
     title: {
       fontSize: '24px',
       fontWeight: 'bold',
-      marginBottom: '24px',
-      color: '#0f62fe',
     },
     tabContainer: {
       display: 'flex',
       flexWrap: 'wrap',
       marginBottom: '24px',
+      backgroundColor: '#e0e0e0',
+      padding: '8px',
+      borderRadius: '8px',
     },
     tabButton: (isActive) => ({
       display: 'flex',
@@ -86,9 +95,9 @@ const IBMSterlingSupplyChainControlTowerDemo = () => {
       padding: '8px 16px',
       marginRight: '8px',
       marginBottom: '8px',
-      backgroundColor: isActive ? '#0f62fe' : '#e0e0e0',
-      color: isActive ? 'white' : 'black',
-      border: 'none',
+      backgroundColor: isActive ? '#0f62fe' : '#ffffff',
+      color: isActive ? 'white' : '#0f62fe',
+      border: '1px solid #0f62fe',
       borderRadius: '4px',
       cursor: 'pointer',
     }),
@@ -168,6 +177,7 @@ const IBMSterlingSupplyChainControlTowerDemo = () => {
     },
     workQueueTitle: {
       fontWeight: 'bold',
+      color: '#0f62fe',
     },
     workQueueButton: {
       padding: '8px 16px',
@@ -182,6 +192,9 @@ const IBMSterlingSupplyChainControlTowerDemo = () => {
       padding: '16px',
       borderRadius: '8px',
       marginBottom: '8px',
+    },
+    largeText: {
+      fontSize: '16px',
     },
   };
 
@@ -207,11 +220,11 @@ const IBMSterlingSupplyChainControlTowerDemo = () => {
       <div style={styles.grid}>
         <div style={styles.card('#cfe2f3')}>
           <h3 style={styles.cardTitle}>True End-to-End Visibility</h3>
-          <p>Remove data silos and inefficiencies to establish real-time visibility across your global supply chain.</p>
+          <p>Break down data barriers and inefficiencies to establish real-time visibility across your global supply chain.</p>
         </div>
         <div style={styles.card('#d9ead3')}>
           <h3 style={styles.cardTitle}>Intelligent Workflows</h3>
-          <p>Detect, display, streamline and prioritize work tasks in real time. Benefit from AI-informed and data-driven decisions.</p>
+          <p>Detect, display, streamline, and prioritize work tasks in real-time. Benefit from AI-informed and data-driven decisions.</p>
         </div>
         <div style={styles.card('#fff2cc')}>
           <h3 style={styles.cardTitle}>Smarter Integration</h3>
@@ -262,6 +275,7 @@ const IBMSterlingSupplyChainControlTowerDemo = () => {
               <Tooltip />
               <Legend />
               <Line type="monotone" dataKey="demand" stroke="#8884d8" />
+              <Line type="monotone" dataKey="weather" stroke="#82ca9d" />
             </LineChart>
           </ResponsiveContainer>
         </div>
@@ -278,7 +292,7 @@ const IBMSterlingSupplyChainControlTowerDemo = () => {
             <div key={index} style={styles.card('#e0f7fa')}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '8px' }}>
                 {action.icon}
-                <span style={{ marginLeft: '8px' }}>{action.text}</span>
+                <span style={{ ...styles.largeText, marginLeft: '8px' }}>{action.text}</span>
               </div>
             </div>
           ))}
@@ -342,7 +356,9 @@ const IBMSterlingSupplyChainControlTowerDemo = () => {
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>IBM Sterling Supply Chain Control Tower for Green Garden</h1>
+      <div style={styles.header}>
+        <h1 style={styles.title}>IBM Sterling Supply Chain Control Tower for Green Garden</h1>
+      </div>
       
       <div style={styles.tabContainer}>
         {['overview', 'visibility', 'workflows', 'integration', 'analytics'].map((tab) => (
