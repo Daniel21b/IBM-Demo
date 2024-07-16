@@ -315,7 +315,7 @@ const IBMSterlingSupplyChainControlTowerDemo = () => {
 
   const renderIntegration = () => (
     <Section title="Smarter Integration">
-      <p style={{ marginBottom: '16px' }}>Our Control Tower uses out-of-the-box connectors and APIs to seamlessly integrate with your existing systems:</p>
+      <p style={{ marginBottom: '16px' }}>IBM'S Control Tower uses out-of-the-box connectors and APIs to seamlessly integrate with your existing systems:</p>
       <div style={styles.grid}>
         {integrations.map((item, index) => (
           <div key={index} style={{ ...styles.card('#d9ead3'), ...styles.flexCenter }}>
