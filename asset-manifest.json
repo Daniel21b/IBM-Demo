@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/IBM-Demo/static/css/main.75a7569e.css",
+    "main.js": "/IBM-Demo/static/js/main.cdcc797e.js",
+    "static/js/453.68693753.chunk.js": "/IBM-Demo/static/js/453.68693753.chunk.js",
+    "index.html": "/IBM-Demo/index.html",
+    "main.75a7569e.css.map": "/IBM-Demo/static/css/main.75a7569e.css.map",
+    "main.cdcc797e.js.map": "/IBM-Demo/static/js/main.cdcc797e.js.map",
+    "453.68693753.chunk.js.map": "/IBM-Demo/static/js/453.68693753.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.75a7569e.css",
+    "static/js/main.cdcc797e.js"
+  ]
+}
